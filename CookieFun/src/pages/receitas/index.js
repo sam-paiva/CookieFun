@@ -34,6 +34,15 @@ const Receitas = (props) => {
                             </Body>
                         </CardItem>
                     </Card>
+                    <Card>
+                        <CardItem>
+                            <Body>
+                                <Text>
+                                    Carnes
+                                </Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
                 </Content>
             </Container>
         </>
