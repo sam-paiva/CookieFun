@@ -3,7 +3,16 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
+import Home from './src/pages/home/index';
 import {name as appName} from './app.json';
+import Routes from './src/routes/routes';
 
-AppRegistry.registerComponent(appName, () => App);
+export const StackRoutes = () => {
+    return (
+        <>
+        <Routes />
+        </>
+    );
+} 
+
+AppRegistry.registerComponent(appName, () => Routes);
