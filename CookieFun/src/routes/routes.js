@@ -2,6 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 
 import Home from '../pages/home/index';
+import TipoReceitas from '../pages/tipoReceitas/index';
 import Receitas from '../pages/receitas/index';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -16,14 +17,14 @@ const MainNavigator = createDrawerNavigator({
             ),
           },
     },
-    Receitas: {
-        screen: Receitas,
+    TipoReceitas: {
+        screen: TipoReceitas,
         navigationOptions: {
             drawerIcon: (
               <Icon name="library-books" size={20}/>
             ),
           },
-    }
+    },
 }, {
 
     intialRouteName: 'Home',
@@ -49,6 +50,12 @@ const AppStack = createStackNavigator(
                 headerLeft: <Icon onPress={() => navigation.toggleDrawer()} color={'white'} size={30} name='list' />,
             }),
             
+        },
+        Receitas: {
+            screen: Receitas,
+            navigationOptions: ({ navigation }) => ({
+                title: 'Receitas',
+            }),
         }
     }, {
         headerLayoutPreset: 'center'

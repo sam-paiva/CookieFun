@@ -1,45 +1,56 @@
 import React, { useEffect } from 'react';
-import { Container, Content, Header, Card, Body, CardItem, Title, Text } from 'native-base';
+import { Container, Content, Header, Card, Body, CardItem, Title, Text, Item, Input } from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector, useDispatch } from 'react-redux';
-import { getReceitas } from '../../actions/receitasActions';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import * as actions from '../../actions/receitasActions';
+import styles from './styles';
+import { ImageBackground } from 'react-native';
 
 
 const Receitas = (props) => {
     const dispatch = useDispatch();
-
-    const tipoReceitas = useSelector(state => state.receitas.tipoReceitas);
+    const receitaId = props.navigation.state.params.receitaId;
+    const receitas = useSelector(state => state.receitas.receitas);
 
     useEffect(() => {
-        dispatch(getReceitas());
+        dispatch(actions.getReceitas(receitaId));
     }, [])
 
     return (
         <>
             <Container>
-                <Content>
-                    {tipoReceitas.map(element => {
-                        return<TouchableOpacity onPress={() => {}}> 
-                        <Card onCLick={() => {}}>
-                            <CardItem>
-                                <Body>
-                                    <Text>
-                                        {element.descricao}
-                                    </Text>
-                                </Body>
-                            </CardItem>
-                        </Card>
-                        </TouchableOpacity>
-                    })}
-                </Content>
+                <ImageBackground style={styles.image} source={require('../../resources/backgroundFood.jpg')}>
+                    <Content>
+                        <Item>
+                            <Icon name="search" />
+                            <Input style={styles.input} rounded placeholder="Procurar" />
+                        </Item>
+                        {receitas.map((element, key) => {
+                            return <Card style={styles.card} key={key}>
+                                <CardItem header>
+                                    <Text>{element.titulo}</Text>
+                                </CardItem>
+                                <CardItem header>
+                                    <Text>{element.nomeReceita}</Text>
+                                </CardItem>
+                                <CardItem>
+                                    <Body>
+                                        <Text>
+                                            {element.descricao}
+                                        </Text>
+                                    </Body>
+                                </CardItem>
+                                <CardItem footer>
+                                    <Text>Por: Samuel Paiva</Text>
+                                </CardItem>
+                            </Card>
+                        })}
+
+                    </Content>
+                </ImageBackground>
             </Container>
         </>
     );
-}
-
-Receitas.navigationOptions = {
-    title: 'Receitas',
-    header: 'Receitas'
 }
 
 export default Receitas;
