@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Content, Header, Left, Title, Text, View } from 'native-base';
-import { Button, Icon } from 'react-native-elements';
 import styles from '../home/styles';
 
 

@@ -13,4 +13,10 @@ export const getTodasReceitasAsync = async (receitaId) => {
     });
 
     return response;
+}
+
+export const inserirNovaReceita = async (Receita) => {
+    const response = await axios.put(Config.APP_URL_BASE + '/receita', Receita);
+
+    return response;
 } 

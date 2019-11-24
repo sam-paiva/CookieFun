@@ -4,11 +4,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    title: {
+    textArea: {
+        width: '95%',
+        backgroundColor: 'black',
+        marginTop: 20,
+        marginLeft: 10,
+        height: 250,
+        fontSize: 15,
+        color: 'white'
+    },
+    icon: {
         textAlign: 'center',
-        fontSize: 20,
-        color: 'black',
-        margin: 15
     },
     card: {
         opacity: 0.9
@@ -17,15 +23,17 @@ const styles = StyleSheet.create({
         marginTop: 100
     },
     input: {
-        fontSize: 20,
+        fontSize: 15,
         color: 'white',
+        backgroundColor: 'black',
     },
     button: {
         color: 'white',
-        marginTop: 50,
+        margin: 30,
         fontSize: 15,
-        backgroundColor: 'orange',
-        margin: 30
+        backgroundColor: 'red',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     buttonText: {
         textAlign: 'center',
@@ -37,14 +45,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
     },
     item: {
-        marginTop: 30
+        marginTop: 30,
+        marginLeft: 10,
+        marginRight: 10
     },
     image: {
         flex: 1,
         width: '100%',
         height: '100%',
         resizeMode: 'cover',
-        opacity: 0.8
+        opacity: 0.9
     }
 })
 

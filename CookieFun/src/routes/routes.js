@@ -3,7 +3,8 @@ import { createAppContainer } from 'react-navigation';
 
 import Home from '../pages/home/index';
 import TipoReceitas from '../pages/tipoReceitas/index';
-import Receitas from '../pages/receitas/index';
+import Receitas from '../pages/receitas/index/index';
+import AddReceita from '../pages/receitas/addReceita/addReceita';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -13,17 +14,17 @@ const MainNavigator = createDrawerNavigator({
         screen: Home,
         navigationOptions: {
             drawerIcon: (
-              <Icon name="home" size={20}/>
+                <Icon name="home" size={20} />
             ),
-          },
+        },
     },
     TipoReceitas: {
         screen: TipoReceitas,
         navigationOptions: {
             drawerIcon: (
-              <Icon name="library-books" size={20}/>
+                <Icon name="library-books" size={20} />
             ),
-          },
+        },
     },
 }, {
 
@@ -47,18 +48,24 @@ const AppStack = createStackNavigator(
             screen: MainNavigator,
             navigationOptions: ({ navigation }) => ({
                 title: 'CookieFun',
-                headerLeft: <Icon onPress={() => navigation.toggleDrawer()} color={'white'} size={30} name='list' />,
+                headerLeft: <Icon onPress={() => navigation.toggleDrawer()} color={'white'} size={30} name='list' />
             }),
-            
+
         },
         Receitas: {
             screen: Receitas,
             navigationOptions: ({ navigation }) => ({
-                title: 'Receitas',
+                title: 'Receitas'
+            }),
+        },
+        AddReceita: {
+            screen: AddReceita,
+            navigationOptions: ({ navigation }) => ({
+                title: 'Nova Receita'
             }),
         }
     }, {
-        headerLayoutPreset: 'center'
-    });
+    headerLayoutPreset: 'center'
+});
 
 export default createAppContainer(AppStack)
